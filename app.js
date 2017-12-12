@@ -17,8 +17,8 @@ var commentRoutes       = require("./routes/comments"),
     indexRoutes          = require("./routes/index");
 
 // seedDB();
-mongoose.connect(process.env.DATABASEURL);
-mongoose.Promise = global.Promise;
+mongoose.connect(process.env.DATABASEURL, {useMongoClient: true});
+// mongoose.Promise = global.Promise;
 
 app.use(bodyParser.urlencoded({extender: true}));
 app.set("view engine", "ejs");
