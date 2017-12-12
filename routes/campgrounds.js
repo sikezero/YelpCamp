@@ -57,8 +57,9 @@ router.get("/:id", function(req, res){
             req.flash("error", "Campground not found");
             res.redirect("back");
         } else{
-            console.log(foundCampground);
-            res.render("campgrounds/show", {campground: foundCampground});
+            //console.log(foundCampground);
+            console.log(process.env.GOOGLEMAPSURL);
+            res.render("campgrounds/show", {campground: foundCampground, GOOGLEMAPSURL: process.env.GOOGLEMAPSURL});
         }
     });
     
